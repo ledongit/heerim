@@ -1,0 +1,50 @@
+body {
+  font-family: "Noto Sans KR", "Nanum Gothic", "Noto Serif", sans-serif;
+  margin: 0;
+}
+
+#logo {
+  display: flex;
+  justify-content: center;
+  background-color: #000;
+  margin-left: 200px;
+}
+#logo .logoImg {
+  width: 140px;
+  height: 90px;
+}
+
+#header {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 150px;
+  justify-content: space-between;
+  align-items: center;
+}
+#header .logoBox {
+  display: flex;
+  position: relative;
+}
+#header .logoBox .greenBar {
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 300px;
+  top: -30px;
+  left: 120px;
+  background-color: #92d050;
+}
+#header .optionBox {
+  display: flex;
+  margin-right: 200px;
+  font-size: 20px;
+  font-weight: 700;
+  position: relative;
+}
+#header .optionBox .languageBox {
+  margin-right: 20px;
+}
+#header .optionBox .languageBox .en {
+  margin-right: 20px;
+}

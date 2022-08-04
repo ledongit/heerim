@@ -1,0 +1,57 @@
+@import "vars";
+@import "mixin";
+
+body {
+  font-family: "Noto Sans KR", "Nanum Gothic", "Noto Serif", sans-serif;
+  margin: 0;
+}
+
+#logo {
+  display: flex;
+  justify-content: center;
+  background-color: #000;
+  margin-left: 200px;
+  .logoImg {
+    width: 140px;
+    height: 90px;
+  }
+}
+
+#header {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 150px;
+  justify-content: space-between;
+  align-items: center;
+  // margin: 0 auto;
+  .logoBox {
+    display: flex;
+    position: relative;
+    .greenBar {
+      display: block;
+      position: absolute;
+      width: 10px;
+      height: 300px;
+      top: -30px;
+      left: 120px;
+      background-color: #92d050;
+    }
+  }
+
+  .optionBox {
+    display: flex;
+    margin-right: 200px;
+    font-size: 20px;
+    font-weight: 700;
+    position: relative;
+    .languageBox {
+      margin-right: 20px;
+      &.after {
+      }
+      .en {
+        margin-right: 20px;
+      }
+    }
+  }
+}
