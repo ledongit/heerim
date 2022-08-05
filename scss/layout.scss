@@ -9,7 +9,7 @@ body {
 #logo {
   display: flex;
   justify-content: center;
-  background-color: #000;
+  // background-color: #none;
   margin-left: 200px;
   .logoImg {
     width: 140px;
@@ -24,6 +24,7 @@ body {
   height: 150px;
   justify-content: space-between;
   align-items: center;
+  z-index: 9999;
   // margin: 0 auto;
   .logoBox {
     display: flex;
@@ -40,17 +41,45 @@ body {
   }
 
   .optionBox {
+    color: #fff;
     display: flex;
     margin-right: 200px;
     font-size: 20px;
     font-weight: 700;
     position: relative;
     .languageBox {
-      margin-right: 20px;
-      &.after {
+      margin-right: 30px;
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        width: 0.2px;
+        height: 15px;
+        background-color: #bbb;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        left: 50%;
       }
       .en {
         margin-right: 20px;
+      }
+    }
+    .searchBox {
+      margin-right: 30px;
+    }
+    .menuBtn {
+      display: flex;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      flex-wrap: wrap;
+
+      .square {
+        display: block;
+        width: 5px;
+        height: 5px;
+        background-color: #fff;
+        margin-right: 5px;
       }
     }
   }

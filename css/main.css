@@ -1,0 +1,31 @@
+#mainVisual {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+#mainVisual .mainBgContainer {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+#mainVisual .mainBgContainer .mainBg {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  transform: scaleX(1.1);
+}
+#mainVisual .mainBgContainer .mainBg iframe {
+  display: block;
+  position: absolute;
+  width: 100vw;
+  height: 110vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}

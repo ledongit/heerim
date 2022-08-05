@@ -6,7 +6,6 @@ body {
 #logo {
   display: flex;
   justify-content: center;
-  background-color: #000;
   margin-left: 200px;
 }
 #logo .logoImg {
@@ -21,6 +20,7 @@ body {
   height: 150px;
   justify-content: space-between;
   align-items: center;
+  z-index: 9999;
 }
 #header .logoBox {
   display: flex;
@@ -36,6 +36,7 @@ body {
   background-color: #92d050;
 }
 #header .optionBox {
+  color: #fff;
   display: flex;
   margin-right: 200px;
   font-size: 20px;
@@ -43,8 +44,36 @@ body {
   position: relative;
 }
 #header .optionBox .languageBox {
-  margin-right: 20px;
+  margin-right: 30px;
+  position: relative;
+}
+#header .optionBox .languageBox:after {
+  content: "";
+  position: absolute;
+  width: 0.2px;
+  height: 15px;
+  background-color: #bbb;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
 }
 #header .optionBox .languageBox .en {
   margin-right: 20px;
+}
+#header .optionBox .searchBox {
+  margin-right: 30px;
+}
+#header .optionBox .menuBtn {
+  display: flex;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  flex-wrap: wrap;
+}
+#header .optionBox .menuBtn .square {
+  display: block;
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  margin-right: 5px;
 }
