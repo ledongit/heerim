@@ -44,6 +44,9 @@ body {
   position: relative;
 }
 #header .optionBox .languageBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 30px;
   position: relative;
 }
@@ -62,6 +65,9 @@ body {
 }
 #header .optionBox .searchBox {
   margin-right: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #header .optionBox .menuBtn {
   display: flex;

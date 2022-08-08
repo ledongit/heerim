@@ -1,5 +1,4 @@
 #mainVisual {
-  width: 100vw;
   height: 100vh;
   overflow: hidden;
 }
@@ -14,18 +13,100 @@
 #mainVisual .mainBgContainer .mainBg {
   display: flex;
   position: relative;
-  width: 100vw;
   height: 100vh;
   overflow: hidden;
-  transform: scaleX(1.1);
+  transform: scale(1.1);
 }
 #mainVisual .mainBgContainer .mainBg iframe {
   display: block;
   position: absolute;
-  width: 100vw;
-  height: 110vh;
+  width: 2000px;
+  height: 1300px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
+}
+#mainVisual .mainBgContainer .mainDesc {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  top: 50%;
+  left: 20%;
+}
+#mainVisual .mainBgContainer .mainDesc .descSlide {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  transform: translate(-10%, -50%);
+  color: #fff;
+}
+#mainVisual .mainBgContainer .mainDesc .descSlide:nth-child(2) {
+  opacity: 0;
+}
+#mainVisual .mainBgContainer .mainDesc .descSlide:nth-child(3) {
+  opacity: 0;
+}
+#mainVisual .mainBgContainer .mainDesc .descSlide .small {
+  font-size: clamp(1rem, 5vw, 3rem);
+  font-weight: 300;
+  padding-bottom: 30px;
+}
+#mainVisual .mainBgContainer .mainDesc .descSlide .big {
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 900;
+  padding-bottom: 30px;
+}
+
+#who {
+  height: 100vh;
+}
+#who .whoContainer {
+  height: 80%;
+  background-color: #ffe345;
+  position: relative;
+}
+#who .whoContainer .whoBgBottomLeft {
+  position: absolute;
+  background-image: url("../images/contents/who/company_bottom_left_bg.gif");
+  background-size: auto;
+  width: 11.1458vw;
+  height: 17.5521vw;
+  bottom: 0;
+  background-repeat: no-repeat;
+}
+#who .whoContainer .whoBgTopLeft {
+  position: absolute;
+  background-image: url("../images/contents/who/company_top_left_bg.gif");
+  background-size: auto;
+  width: 50%;
+  height: 50%;
+  top: 0;
+  left: 50px;
+  background-repeat: no-repeat;
+}
+#who .whoContainer .whoBgRight {
+  position: absolute;
+  background: url("../images/contents/who/company_right_bg.jpg") 100% 0;
+  background-size: auto 100%;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-repeat: no-repeat;
+}
+#who .whoContainer .whoBox {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#who .whoContainer .whoBox .whoDesc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
