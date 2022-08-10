@@ -3,6 +3,20 @@ button {
   background: none;
 }
 
+.banner {
+  display: block;
+  color: #fff;
+  background-color: #92d050;
+  padding: 5px 10px;
+  width: fit-content;
+}
+
+.title {
+  font-size: clamp(30px, 10vw, 60px);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
 #mainVisual {
   height: 100vh;
   overflow: hidden;
@@ -117,18 +131,8 @@ button {
   flex-direction: column;
   justify-content: center;
 }
-#who .whoContainer .whoBox .whoDesc .banner {
-  display: block;
-  color: #fff;
-  background-color: #92d050;
-  padding: 5px 10px;
-  width: fit-content;
-}
 #who .whoContainer .whoBox .whoDesc .title {
   margin-top: 30px;
-  font-size: clamp(30px, 10vw, 60px);
-  font-weight: 700;
-  line-height: 1.25;
 }
 #who .whoContainer .whoBox .whoDesc .desc {
   margin-top: 30px;
@@ -247,7 +251,32 @@ button {
 }
 #project .projectTitle {
   height: 150px;
-  border-bottom: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  position: relative;
+  max-width: 1500px;
+}
+#project .projectTitle .moreBox {
+  position: absolute;
+  right: 50px;
+  bottom: 40px;
+  font-size: 20px;
+}
+#project .projectTitle .moreBox:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  background-color: #dbedcd;
+  opacity: 0.8;
+  top: 50%;
+  left: 0;
+  z-index: -1;
+  transform: translate(-50%, -50%);
 }
 #project .projectContainer {
   height: calc(100% - 150px);
@@ -280,7 +309,10 @@ button {
   width: 100%;
   height: 100%;
 }
-#project .projectContainer ul li .bgwide02 {
+#project .projectContainer ul li .bgwide01,
+#project .projectContainer ul li .bgwide02,
+#project .projectContainer ul li .bgwide03,
+#project .projectContainer ul li .bgwide04 {
   position: absolute;
   background: no-repeat url("../images/contents/project/project-wide02.jpg");
   top: 0;
@@ -298,4 +330,13 @@ button {
 }
 #project .projectContainer ul li .bg04 {
   background: no-repeat url("../images/contents/project/project04.jpg");
+}
+
+@keyframes circleMoveRight {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    transform: translate(240%, -50%);
+  }
 }
