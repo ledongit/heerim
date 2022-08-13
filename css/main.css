@@ -483,6 +483,7 @@ a {
   margin: 0 20px;
   display: flex;
   flex-basis: 25%;
+  box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.1);
 }
 #news .snsContainer .snsList .snsListBox a:hover .imgBox img {
   transform: scale(1.05);
@@ -537,6 +538,9 @@ a {
 }
 #news .btnContainer {
   height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #news .btnContainer .moreBox {
   margin-top: 40px;
@@ -545,9 +549,20 @@ a {
   color: #ff8500;
   transition: all 0.5s ease-in-out;
   position: relative;
+  cursor: pointer;
 }
 #news .btnContainer .moreBox span {
   transition: all 0.5s ease-in-out;
+}
+#news .btnContainer .moreBox:hover {
+  width: 180px;
+}
+#news .btnContainer .moreBox:hover span {
+  letter-spacing: 0.2em;
+}
+#news .btnContainer .moreBox:hover:before {
+  opacity: 1;
+  transform: translate(330%, -50%);
 }
 #news .btnContainer .moreBox:before {
   content: "";
@@ -563,6 +578,77 @@ a {
   z-index: -1;
   transform: translate(-50%, -50%);
   transition: all 0.5s ease;
+}
+
+#searchContainer {
+  height: 50vh;
+  background: #252525;
+}
+#searchContainer .searchBox {
+  max-width: 1400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+#searchContainer .searchBox .titleBox {
+  margin-bottom: 60px;
+}
+#searchContainer .searchBox .titleBox .title {
+  font-size: 70px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.05em;
+  display: block;
+  margin-bottom: 20px;
+}
+#searchContainer .searchBox .titleBox .title strong {
+  color: #ff8400;
+}
+#searchContainer .searchBox .titleBox .desc {
+  font-size: 20px;
+  color: #666;
+  font-weight: 300;
+}
+#searchContainer .searchBox .inputBox {
+  display: flex;
+}
+#searchContainer .searchBox .inputBox #selectBox {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #ff8400;
+  color: #ff8400;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  text-indent: 5px;
+}
+#searchContainer .searchBox .inputBox #selectBox option {
+  color: #fff;
+  background-color: #ff8400;
+  padding-top: 20px;
+  width: 150px;
+  height: 50px;
+}
+#searchContainer .searchBox .inputBox input {
+  height: 50px;
+  flex-grow: 1;
+  background: none;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 5px solid #fff;
+  -webkit-input-placeholder: #fff;
+  color: #fff;
+}
+#searchContainer .searchBox .tagBox {
+  margin-top: 60px;
+}
+#searchContainer .searchBox .tagBox .tag {
+  font-size: 20px;
+  color: #666;
+  font-weight: 300;
 }
 
 @keyframes circleMoveRight {
