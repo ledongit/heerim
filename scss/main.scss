@@ -645,15 +645,19 @@ a {
     }
     .inputBox {
       display: flex;
+      position: relative;
+
       #selectBox {
         background: none;
         border: none;
-        border-bottom: 1px solid #ff8400;
+        border-bottom: 5px solid #ff8400;
         color: #ff8400;
-        width: 150px;
+        width: 400px;
         height: 50px;
         font-size: 20px;
         text-indent: 5px;
+        cursor: pointer;
+
         option {
           color: #fff;
           background-color: #ff8400;
@@ -672,6 +676,46 @@ a {
         border-bottom: 5px solid #fff;
         -webkit-input-placeholder: #fff;
         color: #fff;
+        position: relative;
+        &::placeholder {
+          color: #fff;
+          font-size: 20px;
+          padding-left: 20px;
+        }
+        &:focus::-webkit-input-placeholder {
+          opacity: 0;
+        }
+      }
+      .searchBtn {
+        color: #fff;
+        width: 400px;
+        height: 50px;
+        border-bottom: 5px solid #fff;
+        font-size: 20px;
+        position: relative;
+        padding-left: 30px;
+        cursor: pointer;
+        &:before {
+          content: "";
+          position: absolute;
+          width: 1px;
+          height: 25px;
+          background-color: #555;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+        }
+        span {
+          display: flex;
+        }
+        i {
+          display: block;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translate(-10%, -50%);
+          font-size: 30px;
+        }
       }
     }
     .tagBox {

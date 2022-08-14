@@ -613,16 +613,18 @@ a {
 }
 #searchContainer .searchBox .inputBox {
   display: flex;
+  position: relative;
 }
 #searchContainer .searchBox .inputBox #selectBox {
   background: none;
   border: none;
-  border-bottom: 1px solid #ff8400;
+  border-bottom: 5px solid #ff8400;
   color: #ff8400;
-  width: 150px;
+  width: 400px;
   height: 50px;
   font-size: 20px;
   text-indent: 5px;
+  cursor: pointer;
 }
 #searchContainer .searchBox .inputBox #selectBox option {
   color: #fff;
@@ -641,6 +643,46 @@ a {
   border-bottom: 5px solid #fff;
   -webkit-input-placeholder: #fff;
   color: #fff;
+  position: relative;
+}
+#searchContainer .searchBox .inputBox input::placeholder {
+  color: #fff;
+  font-size: 20px;
+  padding-left: 20px;
+}
+#searchContainer .searchBox .inputBox input:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+#searchContainer .searchBox .inputBox .searchBtn {
+  color: #fff;
+  width: 400px;
+  height: 50px;
+  border-bottom: 5px solid #fff;
+  font-size: 20px;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+#searchContainer .searchBox .inputBox .searchBtn:before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 25px;
+  background-color: #555;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+#searchContainer .searchBox .inputBox .searchBtn span {
+  display: flex;
+}
+#searchContainer .searchBox .inputBox .searchBtn i {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-10%, -50%);
+  font-size: 30px;
 }
 #searchContainer .searchBox .tagBox {
   margin-top: 60px;
