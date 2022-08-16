@@ -12,6 +12,7 @@ body {
   // background-color: #none;
   margin-left: 200px;
   .logoImg {
+    background: no-repeat url("../images/common/logo.svg") center;
     width: 140px;
     height: 90px;
   }
@@ -25,7 +26,41 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 9999;
+  transition: all 0.5s ease;
   // margin: 0 auto;
+  &.topFixed {
+    position: fixed;
+    height: 80px;
+    transform: translateY(-80px);
+    background-color: rgba(#fff, 0.8);
+    #logo {
+      .logoImg {
+        background-image: url("../images/common/logo-black.svg");
+      }
+    }
+    .greenBar {
+      transform: translateY(-300px);
+    }
+    .optionBox {
+      color: #000;
+      .searchBox {
+        color: #92d050;
+      }
+      .languageBox {
+        .ko {
+          color: #bbb;
+        }
+      }
+      .menuBtn {
+        .square {
+          &:nth-child(1) {
+            background-color: #92d050;
+          }
+          background-color: #000;
+        }
+      }
+    }
+  }
   .logoBox {
     display: flex;
     position: relative;
@@ -37,6 +72,7 @@ body {
       top: -30px;
       left: 120px;
       background-color: #92d050;
+      transition: all 0.5s ease;
     }
   }
 
@@ -86,6 +122,92 @@ body {
         height: 5px;
         background-color: #fff;
         margin-right: 5px;
+      }
+    }
+  }
+}
+
+#footer {
+  height: 30vh;
+  padding: 70px 0;
+  font-size: 22px;
+  a {
+    margin: auto;
+    color: #bbb;
+    font-weight: 300;
+  }
+  .companyInfo {
+    display: flex;
+    width: 1600px;
+    margin: auto;
+    color: #bbb;
+    font-weight: 300;
+    position: relative;
+    .subtitle {
+      display: block;
+      font-weight: 700;
+      color: #92d050;
+      margin-bottom: 20px;
+    }
+    .infoBox {
+    }
+    .seoul {
+      dl {
+        display: flex;
+        margin-bottom: 20px;
+        dt {
+          width: 100px;
+        }
+      }
+    }
+    .support {
+      margin-left: 60px;
+
+      dl {
+        display: flex;
+        margin-bottom: 20px;
+        dt {
+          width: 200px;
+        }
+      }
+    }
+    .snsIcon {
+      position: absolute;
+      right: 0;
+      .iconBox {
+        display: flex;
+        justify-content: space-between;
+        li {
+          i {
+            font-size: 30px;
+          }
+        }
+      }
+      .policy {
+        margin-top: 20px;
+      }
+    }
+  }
+  .footerBottom {
+    display: flex;
+    width: 1600px;
+    margin: 50px auto 0;
+    justify-content: space-between;
+    align-items: center;
+    .copyright {
+      font-weight: 300;
+    }
+    .newsletter {
+      border: 1px solid #92d050;
+      background-color: #92d050;
+      padding: 20px 30px;
+      border-radius: 50px;
+      a {
+        color: #fff;
+        font-weight: 500;
+        span {
+          margin-left: 20px;
+        }
       }
     }
   }
