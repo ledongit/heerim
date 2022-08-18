@@ -124,7 +124,7 @@ a {
   background-repeat: no-repeat;
 }
 #who .whoContainer .whoBox {
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 0 auto;
   height: 100%;
   display: flex;
@@ -139,6 +139,7 @@ a {
 }
 #who .whoContainer .whoBox .whoDesc .title {
   margin-top: 30px;
+  color: #222;
 }
 #who .whoContainer .whoBox .whoDesc .desc {
   margin-top: 30px;
@@ -150,22 +151,30 @@ a {
 #who .whoContainer .whoBox .whoNumBox {
   margin-top: 50px;
   z-index: 10;
+  color: #222;
 }
 #who .whoContainer .whoBox .whoNumBox .numContainer {
   display: flex;
 }
 #who .whoContainer .whoBox .whoNumBox .numContainer li {
-  padding-right: 80px;
+  padding-right: 90px;
 }
 #who .whoContainer .whoBox .whoNumBox .numContainer li .numBoxTitle {
+  display: block;
   font-size: 20px;
   color: #ff8400;
 }
 #who .whoContainer .whoBox .whoNumBox .numContainer li .number {
-  display: block;
+  display: inline-block;
   margin-top: 20px;
-  font-size: 90px;
+  font-size: 80px;
   font-weight: 800;
+  letter-spacing: -0.05em;
+}
+#who .whoContainer .whoBox .whoNumBox .numContainer li strong {
+  font-size: 60px;
+  font-weight: 400;
+  margin-left: 10px;
 }
 #who .iconContainer {
   padding: 0;
@@ -309,6 +318,10 @@ a {
   display: flex;
   position: relative;
   height: 100%;
+  overflow: hidden;
+}
+#project .projectContainer ul:hover .bg .descBox {
+  transform: translateY(400%);
 }
 #project .projectContainer ul li {
   width: 25%;
@@ -319,20 +332,108 @@ a {
   width: 100%;
   height: 100%;
 }
+#project .projectContainer ul li .bg01 {
+  background: no-repeat url("../images/contents/project/project01.jpg");
+  transition: all 0.6s ease;
+  background-size: cover;
+  background-position: center;
+}
 #project .projectContainer ul li:nth-child(1) {
   width: 25%;
+  transition: all 0.6s ease;
+}
+#project .projectContainer ul li:nth-child(1):hover {
+  width: 200%;
+}
+#project .projectContainer ul li:nth-child(1):hover .bg01 {
+  background: no-repeat url("../images/contents/project/project-wide01.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#project .projectContainer ul li:nth-child(1):hover .bg .descBox {
+  transform: translateY(0%);
+  color: #000;
+}
+#project .projectContainer ul li:nth-child(1):hover .bg .descBox:before {
+  transform: translateY(0%);
+}
+#project .projectContainer ul li .bg02 {
+  background: no-repeat url("../images/contents/project/project02.jpg");
+  transition: all 0.6s ease;
+  background-size: cover;
+  background-position: center;
 }
 #project .projectContainer ul li:nth-child(2) {
   width: 25%;
+  transition: all 0.6s ease;
+}
+#project .projectContainer ul li:nth-child(2):hover {
+  width: 200%;
+}
+#project .projectContainer ul li:nth-child(2):hover .bg02 {
+  background: no-repeat url("../images/contents/project/project-wide02.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#project .projectContainer ul li:nth-child(2):hover .bg .descBox {
+  transform: translateY(0%);
+  color: #000;
+}
+#project .projectContainer ul li:nth-child(2):hover .bg .descBox:before {
+  transform: translateY(0%);
+}
+#project .projectContainer ul li .bg03 {
+  background: no-repeat url("../images/contents/project/project03.jpg");
+  transition: all 0.6s ease;
+  background-size: cover;
+  background-position: center;
 }
 #project .projectContainer ul li:nth-child(3) {
   width: 25%;
+  transition: all 0.6s ease;
+}
+#project .projectContainer ul li:nth-child(3):hover {
+  width: 200%;
+}
+#project .projectContainer ul li:nth-child(3):hover .bg03 {
+  background: no-repeat url("../images/contents/project/project-wide03.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#project .projectContainer ul li:nth-child(3):hover .bg .descBox {
+  transform: translateY(0%);
+  color: #000;
+}
+#project .projectContainer ul li:nth-child(3):hover .bg .descBox:before {
+  transform: translateY(0%);
+}
+#project .projectContainer ul li .bg04 {
+  background: no-repeat url("../images/contents/project/project04.jpg");
+  transition: all 0.6s ease;
+  background-size: cover;
+  background-position: center;
 }
 #project .projectContainer ul li:nth-child(4) {
   width: 25%;
+  transition: all 0.6s ease;
+}
+#project .projectContainer ul li:nth-child(4):hover {
+  width: 200%;
+}
+#project .projectContainer ul li:nth-child(4):hover .bg04 {
+  background: no-repeat url("../images/contents/project/project-wide04.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#project .projectContainer ul li:nth-child(4):hover .bg .descBox {
+  transform: translateY(0%);
+  color: #000;
+}
+#project .projectContainer ul li:nth-child(4):hover .bg .descBox:before {
+  transform: translateY(0%);
 }
 #project .projectContainer ul li .bg {
-  background-size: contain;
+  background-size: cover;
   width: 100%;
   height: 100%;
   position: relative;
@@ -342,6 +443,23 @@ a {
   bottom: 50px;
   left: 45px;
   color: #fff;
+  transition: all 0.8s ease;
+  display: block;
+  width: 420px;
+  z-index: 12;
+}
+#project .projectContainer ul li .bg .descBox:before {
+  content: "";
+  width: 450px;
+  height: 200px;
+  display: block;
+  position: absolute;
+  bottom: -50px;
+  left: -15px;
+  background-color: #ffe345;
+  z-index: -1;
+  transform: translateY(200%);
+  transition: all 0.8s ease;
 }
 #project .projectContainer ul li .bg .descBox .location {
   display: block;
@@ -362,18 +480,6 @@ a {
   top: 0;
   left: 0;
   opacity: 0;
-}
-#project .projectContainer ul li .bg01 {
-  background: no-repeat url("../images/contents/project/project01.jpg");
-}
-#project .projectContainer ul li .bg02 {
-  background: no-repeat url("../images/contents/project/project02.jpg");
-}
-#project .projectContainer ul li .bg03 {
-  background: no-repeat url("../images/contents/project/project03.jpg");
-}
-#project .projectContainer ul li .bg04 {
-  background: no-repeat url("../images/contents/project/project04.jpg");
 }
 
 #news {

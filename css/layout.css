@@ -113,6 +113,9 @@ body {
   background-color: #fff;
   margin-right: 5px;
 }
+#header .optionBox .menuBtn .square:nth-child(1) {
+  background-color: #92d050;
+}
 
 #footer {
   height: 30vh;
@@ -158,16 +161,44 @@ body {
 #footer .companyInfo .snsIcon {
   position: absolute;
   right: 0;
+  width: 150px;
 }
 #footer .companyInfo .snsIcon .iconBox {
   display: flex;
   justify-content: space-between;
 }
+#footer .companyInfo .snsIcon .iconBox li:hover i {
+  color: #92d050;
+}
 #footer .companyInfo .snsIcon .iconBox li i {
   font-size: 30px;
+  transition: all 0.2s ease;
 }
 #footer .companyInfo .snsIcon .policy {
   margin-top: 20px;
+}
+#footer .companyInfo .snsIcon .policy a {
+  transition: all 0.2s ease;
+}
+#footer .companyInfo .snsIcon .policy a:after {
+  content: "";
+  position: absolute;
+  width: 95%;
+  height: 2px;
+  bottom: -10px;
+  left: 0;
+  background-color: #92d050;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+#footer .companyInfo .snsIcon .policy:hover a {
+  color: #92d050;
+  font-weight: 400;
+}
+#footer .companyInfo .snsIcon .policy:hover a:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 #footer .footerBottom {
   display: flex;
@@ -180,10 +211,18 @@ body {
   font-weight: 300;
 }
 #footer .footerBottom .newsletter {
-  border: 1px solid #92d050;
+  border: 2px solid #92d050;
   background-color: #92d050;
   padding: 20px 30px;
   border-radius: 50px;
+  transition: all 0.2s ease;
+}
+#footer .footerBottom .newsletter:hover {
+  background-color: #fff;
+}
+#footer .footerBottom .newsletter:hover a {
+  color: #92d050;
+  transition: all 0.2s ease;
 }
 #footer .footerBottom .newsletter a {
   color: #fff;

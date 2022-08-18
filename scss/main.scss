@@ -123,7 +123,7 @@ a {
       background-repeat: no-repeat;
     }
     .whoBox {
-      max-width: 1600px;
+      max-width: 1400px;
       margin: 0 auto;
       height: 100%;
       display: flex;
@@ -136,6 +136,7 @@ a {
         justify-content: center;
         .title {
           margin-top: 30px;
+          color: #222;
         }
         .desc {
           margin-top: 30px;
@@ -148,19 +149,27 @@ a {
       .whoNumBox {
         margin-top: 50px;
         z-index: 10;
+        color: #222;
         .numContainer {
           display: flex;
           li {
-            padding-right: 80px;
+            padding-right: 90px;
             .numBoxTitle {
+              display: block;
               font-size: 20px;
               color: #ff8400;
             }
             .number {
-              display: block;
+              display: inline-block;
               margin-top: 20px;
-              font-size: 90px;
+              font-size: 80px;
               font-weight: 800;
+              letter-spacing: -0.05em;
+            }
+            strong {
+              font-size: 60px;
+              font-weight: 400;
+              margin-left: 10px;
             }
           }
         }
@@ -314,7 +323,15 @@ a {
       display: flex;
       position: relative;
       height: 100%;
+      overflow: hidden;
 
+      &:hover {
+        .bg {
+          .descBox {
+            transform: translateY(400%);
+          }
+        }
+      }
       li {
         width: 25%;
         height: 100%;
@@ -323,21 +340,41 @@ a {
           width: 100%;
           height: 100%;
         }
-        &:nth-child(1) {
-          width: 25%;
-        }
-        &:nth-child(2) {
-          width: 25%;
-        }
-        &:nth-child(3) {
-          width: 25%;
-        }
-        &:nth-child(4) {
-          width: 25%;
+        @for $i from 1 through 4 {
+          .bg0#{$i} {
+            background: no-repeat
+              url("../images/contents/project/project0#{$i}.jpg");
+            transition: all 0.6s ease;
+            background-size: cover;
+            background-position: center;
+          }
+          &:nth-child(#{$i}) {
+            width: 25%;
+            transition: all 0.6s ease;
+            &:hover {
+              width: 200%;
+              .bg0#{$i} {
+                background: no-repeat
+                  url("../images/contents/project/project-wide0#{$i}.jpg");
+                background-size: cover;
+                background-position: center;
+              }
+              .bg {
+                .descBox {
+                  transform: translateY(0%);
+                  // background-color: #ff0;
+                  color: #000;
+                  &:before {
+                    transform: translateY(0%);
+                  }
+                }
+              }
+            }
+          }
         }
 
         .bg {
-          background-size: contain;
+          background-size: cover;
           width: 100%;
           height: 100%;
           position: relative;
@@ -346,6 +383,23 @@ a {
             bottom: 50px;
             left: 45px;
             color: #fff;
+            transition: all 0.8s ease;
+            display: block;
+            width: 420px;
+            z-index: 12;
+            &:before {
+              content: "";
+              width: 450px;
+              height: 200px;
+              display: block;
+              position: absolute;
+              bottom: -50px;
+              left: -15px;
+              background-color: #ffe345;
+              z-index: -1;
+              transform: translateY(200%);
+              transition: all 0.8s ease;
+            }
             .location {
               display: block;
               margin-bottom: 20px;
@@ -368,19 +422,6 @@ a {
           top: 0;
           left: 0;
           opacity: 0;
-        }
-
-        .bg01 {
-          background: no-repeat url("../images/contents/project/project01.jpg");
-        }
-        .bg02 {
-          background: no-repeat url("../images/contents/project/project02.jpg");
-        }
-        .bg03 {
-          background: no-repeat url("../images/contents/project/project03.jpg");
-        }
-        .bg04 {
-          background: no-repeat url("../images/contents/project/project04.jpg");
         }
       }
     }

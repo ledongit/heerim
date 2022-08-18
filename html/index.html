@@ -25,6 +25,7 @@
     <script src="../js/splitting.min.js"></script>
     <script src="../js/swiper-bundle.min.js"></script>
     <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/jquery.easing.min.js"></script>
     <script src="../js/greensock/gsap.min.js"></script>
     <script src="../js/greensock/CSSRulePlugin.min.js"></script>
     <script src="../js/fullpage.min.js"></script>
@@ -102,39 +103,41 @@
                 <span>WHO WE ARE</span>
               </div>
               <div class="title">
-                <p>
-                  World's Leading<br />
-                  Architecture & Design Practice
-                </p>
+                <p>World's Leading</p>
+                <p>Architecture & Design Practice</p>
               </div>
               <div class="desc">
-                <p>
-                  With Innovations and Challenges,<br />
-                  We Design Tomorrow & Beyond, for the next 100 years.
-                </p>
+                <p>With Innovations and Challenges,</p>
+                <p>We Design Tomorrow & Beyond, for the next 100 years.</p>
               </div>
             </div>
             <div class="whoNumBox">
               <ul class="numContainer">
                 <li>
                   <span class="numBoxTitle">History of Heerim</span>
-                  <span class="number">50+</span>
+                  <div>
+                    <span class="number" data-count="50">0</span
+                    ><strong>+</strong>
+                  </div>
                 </li>
                 <li>
                   <span class="numBoxTitle">Branch offices</span>
-                  <span class="number">10</span>
+                  <span class="number" data-count="10">0</span>
                 </li>
                 <li>
                   <span class="numBoxTitle">Professional Employees</span>
-                  <span class="number">1,300+</span>
+                  <span class="number" data-count="1300">0</span
+                  ><strong>+</strong>
                 </li>
                 <li>
                   <span class="numBoxTitle">Overseas Projects</span>
-                  <span class="number">120+</span>
+                  <span class="number" data-count="120"
+                    >0<strong>+</strong></span
+                  >
                 </li>
                 <li>
                   <span class="numBoxTitle">World Ranking (WA2022)</span>
-                  <span class="number">11</span>
+                  <span class="number" data-count="11">0</span>
                 </li>
               </ul>
             </div>
@@ -159,6 +162,7 @@
                 <li class="swiper-slide">
                   <a href="">
                     <div class="iconBox">
+                      +
                       <img
                         class="iconImg"
                         src="../images/contents/who/icon02.png"
@@ -597,24 +601,24 @@
         </div>
         <div class="snsIcon">
           <ul class="iconBox">
-            <li>
+            <li class="magneticBtn">
               <a href=""><i class="fa-brands fa-instagram"></i></a>
             </li>
             <li>
-              <a href=""><i class="fa-brands fa-youtube"></i></a>
+              <a href=""><i class="fa-brands fa-youtube magneticBtn"></i></a>
             </li>
             <li>
-              <a href=""><i class="fa-brands fa-pinterest"></i></a>
+              <a href=""><i class="fa-brands fa-pinterest magneticBtn"></i></a>
             </li>
           </ul>
-          <div class="policy"><a href="">Privacy Policy</a></div>
+          <div class="policy magneticBtn"><a href="">Privacy Policy</a></div>
         </div>
       </div>
       <div class="footerBottom">
         <div class="copyright">
           © 2022. Heerim Architects & Planners Co., Ltd. All rights reserved
         </div>
-        <div class="newsletter">
+        <div class="newsletter magneticBtn">
           <a href="">
             <i class="fa-solid fa-file-image"></i>
             <span>Newsletter Application</span>
@@ -626,10 +630,29 @@
     <script>
       Splitting();
 
-      // console.log($(this).scrollTop());
-      // $(window).scroll(function () {
-      //   console.log("Scroll");
-      // });
+      const whoTL = gsap.timeline({ paused: true });
+      whoTL
+        .from("#who .whoBox .banner", {
+          y: "50px",
+          ease: "power4",
+          opacity: 0,
+        })
+        .from("#who .whoBox p", {
+          y: "50px",
+          ease: "power4",
+          opacity: 0,
+          stagger: {
+            each: 0.05,
+          },
+        })
+        .from("#who .whoBox .whoNumBox li", {
+          y: "50px",
+          ease: "power4",
+          opacity: 0,
+          stagger: {
+            each: 0.05,
+          },
+        });
 
       $("#main").fullpage({
         scrollingSpeed: 700,
@@ -644,12 +667,14 @@
             $("#header").removeClass("topFixed");
           }
         },
-      });
-
-      $(function () {
-        $(window).on("scroll", function () {
-          console.log("scroll happened");
-        });
+        afterLoad: function (origin, destination, direction, trigger) {
+          if (destination.index === 1) {
+            whoTL.restart();
+            numberAnimation();
+          } else {
+            whoTL.pause(0);
+          }
+        },
       });
 
       const mainDesc = $(
@@ -680,6 +705,64 @@
           disableOnInteraction: false,
         },
       });
+
+      function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+
+      function numberAnimation() {
+        $(".whoNumBox .numContainer .number").each(function () {
+          const number = $(this);
+          countTo = $(this).attr("data-count");
+
+          $({ countNum: number.text() }).animate(
+            { countNum: countTo },
+            {
+              duration: 5000,
+              easing: "easeOutCubic",
+              step: function () {
+                number.text(numberWithCommas(Math.floor(this.countNum)));
+              },
+              complete: function () {
+                number.text(numberWithCommas(this.countNum));
+              },
+            }
+          );
+        });
+      }
+
+      $(".magneticBtn").each((idx, item) => {
+        console.log(item);
+        $(item).on("mousemove", function (e) {
+          const magnet = $(item);
+          // const newsletter = $("#footer .newsletter");
+          const loadX = magnet[0].getBoundingClientRect().left;
+          const loadY = magnet[0].getBoundingClientRect().top;
+          const innerX = magnet[0].getBoundingClientRect().width;
+          const innerY = magnet[0].getBoundingClientRect().height;
+
+          const distX = e.clientX - loadX - innerX / 2;
+          const distY = e.clientY - loadY - innerY / 2;
+
+          // console.log(e.clientX);
+          // console.log(loadX);
+          // console.log(innerX / 2);
+
+          // console.log(e.clientY);
+          // console.log(loadY);
+          // console.log(innerY / 2);
+
+          this.style.transform = `translate(${distX * 0.15}px, ${
+            distY * 0.3
+          }px)`;
+          this.style.transform += "scale(1.1)";
+        });
+        $(item).on("mouseleave", function (e) {
+          this.style.removeProperty("transform");
+        });
+      });
+
+      
     </script>
   </body>
 </html>
